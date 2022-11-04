@@ -10,10 +10,13 @@ async function create(req, res){
     res.status(201).json(data);
 }
 
-async function read(req, res){
-    const data = await service.read(req.params.id);
-    res.status(201).json(data);
-}
+
+    async function read(req, res) {
+        const { reviewId } = req.params;
+        const thereview = await service.read(reviewId);
+        res.json({ data: thereview })
+        }
+  
 
 module.exports = {
     list,
